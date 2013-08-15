@@ -52,7 +52,7 @@ class ThermalPrinter(object):
     # SERIALPORT = '/dev/ttyAMA0'
 
     BAUDRATE = 19200
-    TIMEOUT = 3
+    TIMEOUT = 10
 
     # pixels with more color value (average for multiple channels) are counted as white
     # tweak this if your images appear too black or too white
@@ -404,10 +404,10 @@ il inverse left
 
     # runtime dependency on Python Imaging Library
     import Image, ImageDraw
-    i = Image.open("example-lammas.png")
-    data = list(i.getdata())
-    w, h = i.size
-    p.print_bitmap(data, w, h, True)
+#    i = Image.open("example-lammas.png")
+#    data = list(i.getdata())
+#    w, h = i.size
+#    p.print_bitmap(data, w, h, True)
     p.linefeed()
     p.justify("C")
     p.barcode_chr("2")
