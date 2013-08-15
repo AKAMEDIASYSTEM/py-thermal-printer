@@ -2,6 +2,9 @@
 #coding=utf-8
 
 import serial, time
+import Adafruit_BBIO.UART as uart
+import Adafruit_BBIO.PWM as pwm
+import Adafruit_BBIO.GPIO as gpio
 
 #===========================================================#
 # RASPBERRY PI (tested with Raspbian Jan 2012):
@@ -44,9 +47,9 @@ class ThermalPrinter(object):
     """
 
     # default serial port for the Beagle Bone
-    #SERIALPORT = '/dev/ttyO2'
+    SERIALPORT = '/dev/ttyO2'
     # this might work better on a Raspberry Pi
-    SERIALPORT = '/dev/ttyAMA0'
+    # SERIALPORT = '/dev/ttyAMA0'
 
     BAUDRATE = 19200
     TIMEOUT = 3
@@ -79,6 +82,9 @@ class ThermalPrinter(object):
     # clear, but the slower printing speed.
     
     def __init__(self, heatTime=80, heatInterval=2, heatingDots=7, serialport=SERIALPORT):
+        # needed for Adafruit_BBIO UART setup
+        # should execute uart.cleanup() on exit, but this isn't implemented in the lib yet
+        uart.setup("UART2")
         self.printer = serial.Serial(serialport, self.BAUDRATE, timeout=self.TIMEOUT)
         self.printer.write(self._ESC) # ESC - command
         self.printer.write(chr(64)) # @   - initialize
