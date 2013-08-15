@@ -375,7 +375,11 @@ if __name__ == '__main__':
 
     print "Testing printer on port %s" % serialport
     p = ThermalPrinter(serialport=serialport)
-    p.print_text("\nHello Lab. How's it going?\n")
+    p.linefeed()
+    p.linefeed()
+    p.linefeed()
+    p.linefeed()
+    # p.print_text("\nHello Lab. How's it going?\n")
 #     p.print_text("Part of this ")
 #     p.bold_on()
 #     p.print_text("line is bold\n")
