@@ -84,7 +84,7 @@ class ThermalPrinter(object):
     def __init__(self, heatTime=80, heatInterval=2, heatingDots=7, serialport=SERIALPORT):
         # needed for Adafruit_BBIO UART setup
         # should execute uart.cleanup() on exit, but this isn't implemented in the lib yet
-        uart.setup("UART2")
+        # uart.setup("UART2")
         self.printer = serial.Serial(serialport, self.BAUDRATE, timeout=self.TIMEOUT)
         self.printer.write(self._ESC) # ESC - command
         self.printer.write(chr(64)) # @   - initialize
@@ -375,7 +375,7 @@ if __name__ == '__main__':
 
     print "Testing printer on port %s" % serialport
     p = ThermalPrinter(serialport=serialport)
-    p.print_text("\nHello maailma. How's it going?\n")
+    p.print_text("\nHello Lab. How's it going?\n")
     p.print_text("Part of this ")
     p.bold_on()
     p.print_text("line is bold\n")
