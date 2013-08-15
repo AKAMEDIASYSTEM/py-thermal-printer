@@ -206,7 +206,9 @@ class ThermalPrinter(object):
         """ Print some text defined by msg. If chars_per_line is defined, 
             inserts newlines after the given amount. Use normal '\n' line breaks for 
             empty lines. """ 
+
         print "trying to print ", msg
+        
         if chars_per_line == None:
             self.printer.write(msg)
         else:
@@ -378,7 +380,7 @@ if __name__ == '__main__':
     # p.linefeed()
     # p.linefeed()
     # p.linefeed()
-    p.print_text("\nHello Lab. How's it going?\n")
+    p.print_text("\nHello Lab. How's it going?\n",10)
 #     p.print_text("Part of this ")
 #     p.bold_on()
 #     p.print_text("line is bold\n")
