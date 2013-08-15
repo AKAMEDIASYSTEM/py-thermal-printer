@@ -82,9 +82,7 @@ class ThermalPrinter(object):
     # clear, but the slower printing speed.
     
     def __init__(self, heatTime=80, heatInterval=2, heatingDots=7, serialport=SERIALPORT):
-        # needed for Adafruit_BBIO UART setup
-        # should execute uart.cleanup() on exit, but this isn't implemented in the lib yet
-        # uart.setup("UART2")
+        print "init got called"
         self.printer = serial.Serial(serialport, self.BAUDRATE, timeout=self.TIMEOUT)
         self.printer.write(self._ESC) # ESC - command
         self.printer.write(chr(64)) # @   - initialize
@@ -419,5 +417,5 @@ if __name__ == '__main__':
 #     p.barcode("014633098808")
 #     p.linefeed()
 #     p.linefeed()
-    p.linefeed()
+#     p.linefeed()
     
