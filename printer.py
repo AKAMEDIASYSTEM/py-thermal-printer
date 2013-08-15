@@ -82,7 +82,6 @@ class ThermalPrinter(object):
     # clear, but the slower printing speed.
     
     def __init__(self, heatTime=80, heatInterval=2, heatingDots=7, serialport=SERIALPORT):
-        print "init got called"
         self.printer = serial.Serial(serialport, self.BAUDRATE, timeout=self.TIMEOUT)
         self.printer.write(self._ESC) # ESC - command
         self.printer.write(chr(64)) # @   - initialize
@@ -373,10 +372,10 @@ if __name__ == '__main__':
 
     print "Testing printer on port %s" % serialport
     p = ThermalPrinter(serialport=serialport)
-    print p
-    p.linefeed()
-    p.linefeed()
-    p.linefeed()
+    # print p
+    # p.linefeed()
+    # p.linefeed()
+    # p.linefeed()
     p.linefeed()
     p.print_text("\nHello Lab. How's it going?\n")
 #     p.print_text("Part of this ")
