@@ -52,7 +52,7 @@ class ThermalPrinter(object):
     # SERIALPORT = '/dev/ttyAMA0'
 
     BAUDRATE = 19200
-    TIMEOUT = 10
+    TIMEOUT = 5
 
     # pixels with more color value (average for multiple channels) are counted as white
     # tweak this if your images appear too black or too white
@@ -380,7 +380,7 @@ if __name__ == '__main__':
     # p.linefeed()
     # p.linefeed()
     # p.linefeed()
-    p.print_text("\nHello Lab. How's it going?\n")
+    p.print_text("Hello Lab. How's it going?")
 #     p.print_text("Part of this ")
 #     p.bold_on()
 #     p.print_text("line is bold\n")
